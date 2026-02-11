@@ -1,9 +1,13 @@
 import socket
 import threading
 import json
+import os
 
 # Configuration
-HOST = '127.0.0.1'
+# Logic Change: Use environment variable for Host binding.
+# In Docker, we must bind to '0.0.0.0' to be accessible outside the container.
+# Default remains '127.0.0.1' for local non-docker testing.
+HOST = os.getenv('HOST', '127.0.0.1')
 PORT = 5050
 
 # Shared state for clients
