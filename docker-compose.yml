@@ -2,10 +2,12 @@ version: '3.8'
 
 services:
   chat-server:
+    # Build from the current directory (where Dockerfile is)
     build: .
     container_name: pynet-chat-server
     ports:
       - "5050:5050"
     environment:
+      # Inject the 0.0.0.0 host so the python script listens on all interfaces
       - HOST=0.0.0.0
     restart: unless-stopped

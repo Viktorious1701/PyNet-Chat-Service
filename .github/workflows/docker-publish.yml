@@ -26,8 +26,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: ./PyNetChatService
-          file: ./PyNetChatService/Dockerfile
+          # Context is '.' because Dockerfile is at the root of the repo
+          context: .
+          file: ./Dockerfile
           push: true
-          # Logic Change: Hardcoded username to prevent variable expansion errors
+          # Hardcoded tag matches your Docker Hub repository
           tags: vik1701/pynet-chat-server:latest
