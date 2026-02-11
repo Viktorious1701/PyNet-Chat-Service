@@ -26,9 +26,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          # Context is '.' because Dockerfile is at the root of the repo
+          # Context is root because your files are at the top level
           context: .
           file: ./Dockerfile
           push: true
-          # Hardcoded tag matches your Docker Hub repository
-          tags: vik1701/pynet-chat-server:latest
+          # Logic Change: Reverted to using the Secret variable now that it is set up in GitHub
+          tags: ${{ secrets.DOCKER_USERNAME }}/pynet-chat-server:latest
