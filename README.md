@@ -6,6 +6,11 @@ A command-line chat application built with raw Python sockets to demonstrate TCP
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
+EC2 docker to run
+ 
+`bash
+sudo docker run -d -p 5050:5050 --restart always --name chat-server pynet-chat
+`
 ---
 
 ## 📋 Table of Contents

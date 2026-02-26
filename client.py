@@ -3,9 +3,13 @@ import sys
 import json
 import threading
 
-# Configuration
-HOST = '127.0.0.1'
-PORT = 5050
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+HOST = os.getenv('CHAT_HOST', 'localhost')
+PORT = int(os.getenv('CHAT_PORT', 5050))
 
 
 def receive_messages(client_socket):
